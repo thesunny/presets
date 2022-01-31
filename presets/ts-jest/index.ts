@@ -1,0 +1,19 @@
+import * as utils from "~/lib/utils"
+
+export default function presetTsJest() {
+  utils.title(`Preset ts-jest`)
+  utils.addDevDeps(["jest", "ts-jest", "@types/jest"])
+  utils.copyLocalFiles([
+    "jest.config.js",
+    "jest.fast.config.js",
+    "tsconfig.base.json",
+    "tsconfig.ts-jest.json",
+  ])
+  utils.addScripts({
+    "--- test": "#",
+    "test:once": "jest --config=jest.config.js",
+    "test:watch": "jest --watch --config=jest.fast.config.js",
+    "test:watch:types": "jest --watch --config=jest.config.js",
+    "test:clearcache": "jest --clearCache",
+  })
+}
