@@ -19,6 +19,17 @@ export function addDevDeps(deps: string[]) {
   install(deps, { yarn: true, dev: true })
 }
 
+export function addLines(path: string, lines: string[]) {
+  utils.task(`Ensures lines in ${JSON.stringify(path)}`)
+  core.lines(path).add(lines).save()
+  utils.pass("Done")
+}
+
+export function syncLines(path: string) {
+  const lines = utils.readFile(getPresetPath(path)).split("\n")
+  addLines(path, lines)
+}
+
 export function addScripts(scripts: Record<string, string>) {
   let pkg = core.packageJson()
   utils.task("Add scripts to package.json")
