@@ -1,6 +1,6 @@
 import * as utils from "~/lib/utils"
 
-export default function presetTsJest() {
+export function tsJestPreset() {
   utils.title(`Preset ts-jest`)
   utils.addDevDeps(["jest", "ts-jest", "@types/jest"])
   utils.copyLocalFiles([
@@ -17,3 +17,5 @@ export default function presetTsJest() {
     "test:clearcache": "jest --clearCache",
   })
 }
+
+export default tsJestPreset
