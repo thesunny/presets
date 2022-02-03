@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.custom.json",
   "compilerOptions": {
     /**
      * Without this, could cause issues with not understanding the `import`

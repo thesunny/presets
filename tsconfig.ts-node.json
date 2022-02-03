@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.custom.json",
   "compilerOptions": {
     /**
      * When we output using `ts-node` we want it to end up in a `commonjs`

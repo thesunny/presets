@@ -7,6 +7,7 @@ export function tsJestPreset() {
     "jest.config.js",
     "jest.fast.config.js",
     "tsconfig.base.json",
+    "tsconfig.custom.json",
     "tsconfig.ts-jest.json",
   ])
   utils.addScripts({

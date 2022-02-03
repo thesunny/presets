@@ -10,6 +10,11 @@
  * try to modify `tsconfig.json`.
  */
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {}
+  "extends": "./tsconfig.custom.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "sourceMap": true,
+    "incremental": true,
+    "jsx": "preserve"
+  }
 }

@@ -2,7 +2,7 @@
  * Incorporates the requirements of Next.js
  */
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.custom.json",
   "compilerOptions": {
     "module": "ESNext",
     "sourceMap": true,

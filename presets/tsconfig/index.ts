@@ -4,6 +4,7 @@ export default function tsconfigPreset() {
   utils.title(`Preset tsconfig`)
   utils.copyLocalFiles([
     "tsconfig.base.json",
+    "tsconfig.custom.json",
     "tsconfig.json",
     "tsconfig.rollup.json",
     "tsconfig.ts-build.json",
