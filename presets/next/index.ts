@@ -15,7 +15,7 @@ export default function nextPreset() {
   utils.addDeps(["next", "react", "react-dom"])
   utils.addDevDeps(["@types/react", "@types/react-dom"])
 
-  utils.task("Add start:dev script if not exists")
+  utils.heading("Add start:dev script")
   const pkg = core.packageJson()
   const startDevScript = pkg.getScript("start:dev")
   if (startDevScript === undefined) {
@@ -27,10 +27,12 @@ export default function nextPreset() {
     } else {
       port = 3000
     }
-    pkg.setScript("-- next", "# NextJs")
-    pkg.setScript("start:dev", `next start -p ${port}`).save()
-    utils.pass("Done")
+    utils.addScripts({
+      "-- next": "# NextJs",
+      "start:dev": `next start -p ${port}`,
+    })
   } else {
+    utils.task("Add start:dev script")
     utils.skip("Already exists")
   }
 }
