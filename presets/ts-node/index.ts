@@ -7,6 +7,6 @@ export default function tsnodePreset() {
   utils.addDevDeps(["typescript", "ts-node", "tsconfig-paths", "@types/node"])
   utils.addScripts({
     "-- ts-node": "# run with ts-node",
-    "ts-node": "ts-node --project tsconfig.ts-node.json",
+    ts: "ts-node --project tsconfig.ts-node.json",
   })
 }

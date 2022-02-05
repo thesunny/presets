@@ -12,11 +12,19 @@ spawnSync(
   }
 )
 
-spawnSync("yarn", [
-  "run",
-  "ts-node",
-  "--project",
-  "node_modules/@thesunny/presets/tsconfig.ts-node.json",
-  "node_modules/@thesunny/presets/bin/index.ts",
-  "setup",
-])
+console.log("Executing preset setup")
+
+spawnSync(
+  "yarn",
+  [
+    "run",
+    "ts-node",
+    "--project",
+    "node_modules/@thesunny/presets/tsconfig.ts-node.json",
+    "node_modules/@thesunny/presets/bin/index.ts",
+    "setup",
+  ],
+  { stdio: ["pipe", "pipe", "pipe"] }
+)
+
+console.log("Finished executing preset setup")
