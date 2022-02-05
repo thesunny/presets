@@ -8,12 +8,19 @@ yarn init
 git init
 
 # Add dependencies and add script
-node node_modules/@thesunny/presets/bin/setup.js
 
 # Add minimum dependencies
 yarn add --dev typescript @types/node ts-node tsconfig-paths
 
+# One of
+yarn link @thesunny/presets
+
+# Or later when we have this publicly
+yarn add @thesunny/preset
+
 # Runs a script that adds a `preset` script to `package.json`
+node node_modules/@thesunny/presets/bin/setup.js
+
 # (NOTE: See why we can't use `bin` in `package.json` below)
 yarn run ts-node --project node_modules/@thesunny/presets/tsconfig.ts-node.json node_modules/@thesunny/presets/bin/index.ts setup
 ```
