@@ -1,5 +1,6 @@
 import * as utils from "~/lib/utils"
 import * as core from "mrm-core"
+import { starterPreset } from "../starter"
 
 /**
  * This sets up the current project to use presets.
@@ -14,6 +15,7 @@ import * as core from "mrm-core"
 
 export default function () {
   utils.title("Preset Setup")
+  starterPreset()
   utils.addScripts({
     "-- preset": "# Run preset from @thesunny/presets",
     preset:

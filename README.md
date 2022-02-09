@@ -3,6 +3,10 @@
 To get started with presets, do the following:
 
 ```sh
+# Updated most recent getting started only requires this.
+# See the @thesunny/preset repository which automatically wires everything up.
+yarn create @thesunny/preset
+
 # If it's a new project...
 yarn init
 git init
@@ -23,6 +27,9 @@ node node_modules/@thesunny/presets/bin/setup.js
 
 # (NOTE: See why we can't use `bin` in `package.json` below)
 yarn run ts-node --project node_modules/@thesunny/presets/tsconfig.ts-node.json node_modules/@thesunny/presets/bin/index.ts setup
+
+# All in one
+git init && yarn add --dev typescript @types/node ts-node tsconfig-paths && yarn link @thesunny/presets && node node_modules/@thesunny/presets/bin/setup.js
 ```
 
 ## Why we can't use `bin` scripts
