@@ -18,6 +18,7 @@ export default function nextPreset() {
     "tsconfig.base.json",
     "tsconfig.custom.json",
     "tsconfig.json", // This is the Next.js tsconfig
+    "next.config.js",
   ])
 
   /**
@@ -48,7 +49,7 @@ export default function nextPreset() {
     }
     utils.addScripts({
       "-- next": "# NextJs",
-      "start:dev": `next start -p ${port}`,
+      "start:dev": `DOTENV=.env/dev.env next start -p ${port}`,
     })
   } else {
     utils.task("Add start:dev script")
