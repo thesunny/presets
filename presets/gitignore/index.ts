@@ -1,7 +1,7 @@
 import * as utils from "~/lib/utils"
 import * as core from "mrm-core"
 
-export default function () {
+export function gitignorePreset() {
   utils.title("Preset gitignore")
 
   /**
@@ -9,3 +9,5 @@ export default function () {
    */
   utils.syncLines(".gitignore")
 }
+
+export default gitignorePreset

@@ -15,7 +15,7 @@ import { starterPreset } from "../starter"
 
 export default function () {
   utils.title("Preset Setup")
-  starterPreset()
+  // starterPreset()
   utils.addScripts({
     "-- preset": "# Run preset from @thesunny/presets",
     preset:

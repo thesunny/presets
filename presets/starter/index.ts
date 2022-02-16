@@ -1,11 +1,11 @@
 import * as utils from "~/lib/utils"
-import { default as prettierrcPreset } from "~/presets/prettier"
-import { default as gitignorePreset } from "~/presets/gitignore"
+import { prettierPreset } from "~/presets/prettier"
+import { gitignorePreset } from "~/presets/gitignore"
 
 export function starterPreset() {
   utils.title(`Preset Starter`)
-  prettierrcPreset()
+  prettierPreset()
   gitignorePreset()
 }
 
-export default starterPreset()
+export default starterPreset

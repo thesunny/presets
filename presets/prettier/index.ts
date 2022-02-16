@@ -1,6 +1,6 @@
 import * as utils from "~/lib/utils"
 
-export function presetPrettier() {
+export function prettierPreset() {
   utils.title(`Preset prettierrc`)
 
   /**
@@ -15,6 +15,11 @@ export function presetPrettier() {
 
   /**
    * Install prettier
+   *
+   * FIXME:
+   *
+   * For some reason this continually fails to finish (just locks up)
+   * on the `wysimark-admin` repo.
    */
   utils.addDevDeps(["prettier"])
 
@@ -29,4 +34,4 @@ export function presetPrettier() {
   })
 }
 
-export default presetPrettier
+export default prettierPreset

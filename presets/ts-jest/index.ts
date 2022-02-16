@@ -6,6 +6,7 @@ export function tsJestPreset() {
   utils.copyLocalFiles([
     "jest.config.js",
     "jest.fast.config.js",
+    "jest.setup.js",
     "tsconfig.base.json",
     "tsconfig.custom.json",
     "tsconfig.ts-jest.json",

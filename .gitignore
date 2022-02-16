@@ -11,4 +11,7 @@
 # standard ignorable files found when using Yarn
 node_modules/
 .DS_Store
+
+# logging we can ignore
 yarn-error.log
+eslint.log
