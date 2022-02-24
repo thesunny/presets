@@ -47,10 +47,12 @@ export default function nextPreset() {
     } else {
       port = 3000
     }
+    utils.task(`Add start:dev script for port ${port}`)
     utils.addScripts({
       "-- next": "# NextJs",
       "start:dev": `DOTENV=.env/dev.env next dev -p ${port}`,
     })
+    utils.pass("Done")
   } else {
     utils.task("Add start:dev script")
     utils.skip("Already exists")

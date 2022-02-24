@@ -38,6 +38,8 @@ export function addScripts(scripts: Record<string, string>) {
   for (const [key, value] of Object.entries(scripts)) {
     pkg = pkg.setScript(key, value)
   }
+  pkg.removeScript("-- end")
+  pkg.setScript("-- end", "# end")
   pkg.save()
   utils.pass("Done")
 }

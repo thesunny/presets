@@ -20,5 +20,6 @@ export default function () {
     "-- preset": "# Run preset from @thesunny/presets",
     preset:
       "ts-node --project node_modules/@thesunny/presets/tsconfig.ts-node.json node_modules/@thesunny/presets/bin/index.ts",
+    "-- end": "# end",
   })
 }
