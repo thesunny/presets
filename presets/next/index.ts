@@ -29,7 +29,7 @@ export default function nextPreset() {
   /**
    * Add dependencies
    */
-  utils.addDeps(["next", "react", "react-dom"])
+  utils.addDeps(["next", "react", "react-dom", "dotenv"])
   utils.addDevDeps(["@types/react", "@types/react-dom"])
 
   /**
@@ -49,7 +49,7 @@ export default function nextPreset() {
     }
     utils.addScripts({
       "-- next": "# NextJs",
-      "start:dev": `DOTENV=.env/dev.env next start -p ${port}`,
+      "start:dev": `DOTENV=.env/dev.env next dev -p ${port}`,
     })
   } else {
     utils.task("Add start:dev script")

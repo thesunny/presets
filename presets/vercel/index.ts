@@ -18,6 +18,8 @@ export function vercelPreset() {
   - Build & Development Settings
     - build command: \`yarn build\`
     - install command: \`yarn install\`
+  - Link Vercel
+    - \`vercel link\`
   - Git
     - production branch: \`production\`
   - create \`.env/production.env\`
