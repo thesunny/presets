@@ -15,3 +15,6 @@ node_modules/
 # logging we can ignore
 yarn-error.log
 eslint.log
+
+# ignore the increment typescript build info
+tsconfig.tsbuildinfo

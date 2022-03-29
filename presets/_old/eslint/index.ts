@@ -1,6 +1,6 @@
 import * as utils from "~/lib/utils"
 
-export function eslintExample() {
+export function eslintPreset() {
   utils.title(`Preset eslint`)
 
   /**
@@ -42,4 +42,4 @@ export function eslintExample() {
   })
 }
 
-export default eslintExample
+export default eslintPreset

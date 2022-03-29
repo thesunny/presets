@@ -29,8 +29,16 @@ export default function nextPreset() {
   /**
    * Add dependencies
    */
-  utils.addDeps(["next", "react", "react-dom", "dotenv"])
-  utils.addDevDeps(["@types/react", "@types/react-dom"])
+  utils.addDeps({
+    next: "10.x",
+    react: "17.x",
+    "react-dom": "17.x",
+    dotenv: "16.x",
+  })
+  utils.addDevDeps({
+    "@types/react": "17.x",
+    "@types/react-dom": "17.x",
+  })
 
   /**
    * Add script if one doesn't exist for `next`

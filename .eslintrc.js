@@ -1,167 +1,66 @@
-/**
- * Taken from https://github.com/ianstormtaylor/slate/blob/main/.eslintrc.json
- *
- * Modifications are marked with comments
- */
 module.exports = {
-  root: true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
   extends: [
-    "plugin:import/typescript",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier", // uses `eslint-config-prettier`
   ],
-  plugins: ["@typescript-eslint", "import", "react", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    sourceType: "module",
-    ecmaVersion: 2020,
     ecmaFeatures: {
       jsx: true,
     },
+    ecmaVersion: 13,
+    sourceType: "module",
   },
-  ignorePatterns: ["**/next-env.d.ts"],
-  settings: {
-    "import/extensions": [".js", ".ts", ".jsx", ".tsx"],
-    react: {
-      version: "detect",
-    },
-  },
-  env: {
-    browser: true,
-    es6: true,
-    mocha: true,
-    node: true,
-  },
+  plugins: ["react", "@typescript-eslint", "no-secrets"],
   rules: {
-    "constructor-super": "error",
-    "dot-notation": [
-      "error",
-      {
-        allowKeywords: true,
-      },
-    ],
-    eqeqeq: ["error", "smart"],
-    "import/default": "error",
-    "import/export": "error",
-    "import/first": "error",
-    "import/named": "error",
-    "import/namespace": "error",
-    "import/newline-after-import": "error",
-    "import/no-deprecated": "error",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        peerDependencies: true,
-      },
-    ],
-    "import/no-mutable-exports": "error",
-    "import/no-named-as-default": "error",
-    "import/no-named-as-default-member": "error",
-    // "import/no-unresolved": "error",
-    "import/no-unresolved": "off",
-    "linebreak-style": "error",
-    "no-array-constructor": "error",
-    "no-class-assign": "error",
-    // "no-console": "error",
-    "no-console": "off",
-    "no-const-assign": "error",
-    "no-debugger": "error",
-    "no-dupe-args": "error",
-    "no-dupe-class-members": "error",
-    "no-dupe-keys": "error",
-    "no-duplicate-case": "error",
-    "no-empty": "error",
-    "no-empty-character-class": "error",
-    "no-empty-pattern": "error",
-    "no-ex-assign": "error",
-    "no-extend-native": "error",
-    "no-extra-boolean-cast": "error",
-    "no-func-assign": "error",
-    "no-invalid-regexp": "error",
-    "no-native-reassign": "error",
-    "no-negated-in-lhs": "error",
-    "no-new-object": "error",
-    "no-new-symbol": "error",
-    "no-path-concat": "error",
-    "no-redeclare": "error",
-    "no-regex-spaces": "error",
-    "no-sequences": "error",
-    "no-tabs": "error",
-    "no-this-before-super": "error",
-    "no-throw-literal": "error",
-    "no-unneeded-ternary": "error",
-    "no-unreachable": "error",
-    "no-unsafe-finally": "error",
-    "no-unsafe-negation": "error",
-    "no-useless-call": "error",
-    "no-useless-computed-key": "error",
-    // "no-useless-constructor": "error",
-    "no-useless-constructor": "off",
-    // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/no-useless-constructor.md
-    //
-    // added this instead because in typescript, constructor can be used to
-    // set types and is therefore not useless.
-    "@typescript-eslint/no-useless-constructor": "error",
-    "no-useless-rename": "error",
-    "no-var": "error",
-    "no-void": "error",
-    "no-with": "error",
-    "object-shorthand": ["error", "always"],
-    "prefer-arrow-callback": "error",
-    "prefer-const": [
-      "error",
-      {
-        destructuring: "all",
-        ignoreReadBeforeAssign: true,
-      },
-    ],
-    "prefer-rest-params": "error",
-    "prefer-spread": "error",
-    "prefer-template": "error",
-    "prettier/prettier": "error",
-    radix: "error",
-    "react/jsx-boolean-value": ["error", "never"],
-    "react/jsx-no-duplicate-props": "error",
-    "react/jsx-no-target-blank": "error",
-    "react/jsx-no-undef": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "react/jsx-wrap-multilines": "error",
-    "react/no-deprecated": "error",
-    "react/no-did-mount-set-state": "error",
-    "react/no-did-update-set-state": "error",
-    "react/no-string-refs": "error",
-    "react/no-unknown-property": "error",
-    // "react/react-in-jsx-scope": "error",
+    /**
+     * We don't require explicit return types as sometimes we want them
+     * derived from the function.
+     */
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    /**
+     * Don't allow eslint to pass if there is a `FIXME:` in the code
+     */
+    "no-warning-comments": ["error", { terms: ["FIXME:"] }],
+    /**
+     * Looks for potentially added an accidental secret to the git repo.
+     */
+    "no-secrets/no-secrets": ["error", { tolerance: 4.6 }],
+    /**
+     * React being in Scope is not required in Next.js so we turn it off
+     */
     "react/react-in-jsx-scope": "off",
-    "react/self-closing-comp": "error",
-    "react/sort-prop-types": "error",
-    "spaced-comment": [
-      "error",
-      "always",
-      {
-        exceptions: ["-"],
-      },
-    ],
-    "use-isnan": "error",
-    "valid-typeof": "error",
-    "yield-star-spacing": ["error", "after"],
-    yoda: ["error", "never"],
   },
   overrides: [
     {
-      files: "**/test/**/*.{js,jsx,ts,tsx}",
+      files: ["*.js"],
       rules: {
-        "import/no-extraneous-dependencies": "off",
-        "import/no-unresolved": "off",
-      },
-    },
-    {
-      files: "**/*.{ts,tsx}",
-      rules: {
-        "import/named": "off",
+        /**
+         * Disable rejection of `require` in JavaScript files often used for
+         * configuration. This TypeScript rule is being erroneously applied to
+         * JavaScript files and this disables it. In the future, I presume
+         * this might be fixed so try removing this rule once in a while to
+         * see if they fixed the issue.
+         */
+        "@typescript-eslint/no-var-requires": "off",
       },
     },
   ],
+  settings: {
+    react: {
+      /**
+       * Automatically detect which version of React. If we remove this, we get
+       * a warning. In the future, it says that this will default to "detect"
+       * in the future and then we can remove this.
+       */
+      version: "detect",
+    },
+  },
 }
