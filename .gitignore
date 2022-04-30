@@ -1,13 +1,17 @@
-# For dotenv environment variables
+# Ignore dotenv environment variables
 .env/
-# distribution directories
+
+# Ignore build/dist directories
 .npm/
 .build
 .dist/
-# used by Next.js
+
+# Ignore Next.js directory
 .next/
-# ignore vercel link
+
+# ignore vercel link directory
 .vercel/
+
 # standard ignorable files found when using Yarn
 node_modules/
 .DS_Store

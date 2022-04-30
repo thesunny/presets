@@ -1,17 +1,13 @@
 import * as utils from "~/lib/utils"
 import tsJestPreset from "../ts-jest"
 import * as core from "mrm-core"
+import lintPreset from "../lint"
+import gitignorePreset from "../gitignore"
 
 export default function npmPreset() {
   utils.title(`Preset NPM`)
-  tsJestPreset()
-  utils.copyLocalFiles(["tsconfig.ts-build.json"])
-  utils.copyLocalFiles(["src/index.ts", "src/test/index.test.ts"], {
-    exists: "skip",
-  })
-  utils.addDevDeps(["tsc"])
-  utils.task("Set main to .dist/src/index.js")
 
+  utils.task("Set main, types and files in package.json")
   const pkg = core.packageJson()
   const pkgName = pkg.get("name")
   pkg
@@ -22,6 +18,16 @@ export default function npmPreset() {
     })
     .save()
   utils.pass("Done")
+
+  gitignorePreset()
+  tsJestPreset()
+  lintPreset()
+  utils.copyLocalFiles(["tsconfig.ts-build.json"])
+  utils.copyLocalFiles(["src/index.ts", "src/test/index.test.ts"], {
+    exists: "skip",
+  })
+
+  utils.addDevDeps(["tsc"])
 
   utils.addScripts({
     "--- npm": "# npm package scripts",

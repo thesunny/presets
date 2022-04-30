@@ -12,6 +12,7 @@ export function lintPreset() {
   utils.syncLines(".eslintignore")
 
   utils.addDevDeps({
+    prettier: "^2",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     eslint: "^8.4.1",
