@@ -1,5 +1,7 @@
 import * as utils from "~/lib/utils"
 import { tsJestPreset } from "../ts-jest"
+import { gitignorePreset } from "../gitignore"
+import { lintPreset } from "../lint"
 import stringHash from "string-hash"
 import * as core from "mrm-core"
 
@@ -10,6 +12,16 @@ export default function nextPreset() {
    * Get ts-jest and all the typescript stuff set up
    */
   tsJestPreset()
+
+  /**
+   * Setup gitignore
+   */
+  gitignorePreset()
+
+  /**
+   * Lint preset
+   */
+  lintPreset()
 
   /**
    * Get the additional required `tsconfig` files for Next.js

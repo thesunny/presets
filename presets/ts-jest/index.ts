@@ -7,6 +7,7 @@ export function tsJestPreset() {
     "jest.config.js",
     "jest.fast.config.js",
     "jest.setup.js",
+    "jest.esm-modules.js",
     "tsconfig.json",
     "tsconfig.base.json",
     "tsconfig.custom.json",
