@@ -1,0 +1,53 @@
+{
+  "name": "temporary",
+  "dependencies": {},
+  "main": ".dist/cjs/src/index.js",
+  "module": ".dist/mjs/src/index.js",
+  "types": ".dist/cjs/src/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./.dist/cjs/src/index.js",
+      "import": "./.dist/mjs/src/index.js",
+      "types": "./.dist/cjs/src/index.d.ts"
+    },
+    "./api": {
+      "require": "./.dist/cjs/src/api/index.js",
+      "import": "./.dist/mjs/src/api/index.js",
+      "types": "./.dist/cjs/src/api/index.d.ts"
+    },
+    "./client": {
+      "require": "./.dist/cjs/src/client/index.js",
+      "import": "./.dist/mjs/src/client/index.js",
+      "types": "./.dist/cjs/src/client/index.d.ts"
+    },
+    "./mock": {
+      "require": "./.dist/cjs/src/mock/index.js",
+      "import": "./.dist/mjs/src/mock/index.js",
+      "types": "./.dist/cjs/src/mock/index.d.ts"
+    },
+    "./web": {
+      "require": "./.dist/cjs/src/web/index.js",
+      "import": "./.dist/mjs/src/web/index.js",
+      "types": "./.dist/cjs/src/web/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./.dist/cjs/src/index.d.ts"
+      ],
+      "api": [
+        "./.dist/cjs/src/api/index.d.ts"
+      ],
+      "client": [
+        "./.dist/cjs/src/client/index.d.ts"
+      ],
+      "mock": [
+        "./.dist/cjs/src/mock/index.d.ts"
+      ],
+      "web": [
+        "./.dist/cjs/src/web/index.d.ts"
+      ]
+    }
+  }
+}

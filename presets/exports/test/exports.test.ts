@@ -19,15 +19,6 @@ describe("map exports", () => {
     })
   })
 
-  afterAll(() => {
-    const tempDir = "presets/exports/test/.temp"
-    if (tempDir !== "presets/exports/test/.temp")
-      throw new Error("Change it in two places so I don't do something stupid")
-    utils.logger.silence(() => {
-      utils.emptyDir(tempDir)
-    })
-  })
-
   it("should generate extensions", async () => {
     const packageExts = createPackageExts(mappings)
     expect(packageExts).toEqual({
