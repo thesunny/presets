@@ -1,8 +1,4 @@
 import * as utils from "~/lib/utils"
-import { tsJestPreset } from "../ts-jest"
-import stringHash from "string-hash"
-import * as core from "mrm-core"
-import tsnodePreset from "../ts-node"
 
 export default function prismaPreset() {
   utils.title(`Preset Prisma`)

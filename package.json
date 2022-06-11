@@ -15,17 +15,20 @@
   "-- devDependencies": "Add @types/* to suppress TS errors in VSCode",
   "devDependencies": {
     "@prisma/client": "^3.11.0",
-    "@types/jest": "^27.4.0",
+    "@types/jest": "^27",
     "@types/node": "^17.0.13",
     "@types/react": "^17.0.38",
     "dotenv": "^16.0.0",
+    "jest": "^27",
     "knex": "^1.0.4",
+    "ts-jest": "^27",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.12.0",
+    "type-fest": "^2.13.0",
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@thesunny/script-utils": "^0.1.28",
+    "@thesunny/script-utils": "^0.1.44",
     "@types/string-hash": "^1.1.1",
     "mrm": "^3.0.10",
     "mrm-core": "^6.1.7",
@@ -33,6 +36,11 @@
   },
   "scripts": {
     "-- preset": "# local version of preset",
-    "preset": "ts-node --project tsconfig.ts-node.json bin/index.ts"
+    "preset": "ts-node --project tsconfig.ts-node.json bin/index.ts",
+    "--- test": "#",
+    "test:once": "yarn test:clearcache && jest --config=jest.config.js",
+    "test:watch": "jest --watch --config=jest.fast.config.js",
+    "test:watch:types": "yarn test:clearcache && jest --watch --config=jest.config.js",
+    "test:clearcache": "jest --clearCache"
   }
 }

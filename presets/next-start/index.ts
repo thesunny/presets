@@ -1,5 +1,4 @@
 import * as utils from "~/lib/utils"
-import { tsJestPreset } from "../ts-jest"
 import stringHash from "string-hash"
 import * as core from "mrm-core"
 
