@@ -33,7 +33,6 @@
     "mrm": "^3.0.10",
     "mrm-core": "^6.1.7",
     "sort-object-keys": "^1.1.3",
-    "sort-package-json": "^1.57.0",
     "string-hash": "^1.1.3"
   },
   "scripts": {
