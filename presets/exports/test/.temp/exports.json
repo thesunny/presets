@@ -1,7 +1,9 @@
 {
-  ".": "src/index.ts",
-  "api": "src/api/index.ts",
-  "client": "src/client/index.ts",
-  "mock": "src/mock/index.ts",
-  "web": "src/web/index.ts"
+  "exports": {
+    ".": "src/index.ts",
+    "api": "src/api/index.ts",
+    "client": "src/client/index.ts",
+    "mock": "src/mock/index.ts",
+    "web": "src/web/index.ts"
+  }
 }

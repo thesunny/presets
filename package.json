@@ -12,7 +12,6 @@
   },
   "author": "Sunny Hirai",
   "license": "MIT",
-  "-- devDependencies": "Add @types/* to suppress TS errors in VSCode",
   "devDependencies": {
     "@prisma/client": "^3.11.0",
     "@types/jest": "^27",

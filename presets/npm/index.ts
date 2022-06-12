@@ -12,8 +12,11 @@ export default function npmPreset() {
   const pkgName = pkg.get("name")
   pkg
     .merge({
-      main: ".dist/src/index.js",
-      types: ".dist/src/index.d.ts",
+      // main: ".dist/src/index.js",
+      // types: ".dist/src/index.d.ts",
+      main: ".dist/cjs/src/index.js",
+      module: ".dist/mjs/src/index.js",
+      types: ".dist/cjs/src/index.d.ts",
       files: [".dist/**/*"],
     })
     .save()
@@ -22,20 +25,28 @@ export default function npmPreset() {
   gitignorePreset()
   tsJestPreset()
   lintPreset()
-  utils.copyLocalFiles(["tsconfig.ts-build.json"])
+  utils.copyLocalFiles([
+    "tsconfig.build-cjs.json",
+    "tsconfig.build-mjs.json",
+    // "tsconfig.ts-build.json",
+  ])
   utils.copyLocalFiles(["src/index.ts", "src/test/index.test.ts"], {
     exists: "skip",
   })
 
   utils.addDevDeps(["tsc"])
+  utils.addDevDeps({ concurrently: "^7.2" })
 
   utils.addScripts({
-    "--- npm": "# npm package scripts",
-    "build:npm:once":
-      "rm -rf ./.dist/ && yarn test:once && tsc -p tsconfig.ts-build.json && echo 'Finished Building'",
-    "build:npm:watch":
-      "rm -rf ./.dist/ && tsc -p tsconfig.ts-build.json --watch",
-    "publish:npm": "yarn publish:npm:patch",
+    "--- build npm": "# build npm",
+    "build:once":
+      "yarn build:clear && yarn test:once && concurrently 'yarn build:cjs' 'yarn build:mjs' && echo 'Finished Building'",
+    "build:watch": "build:clear && tsc -p tsconfig.ts-build.json --watch",
+    "build:clear": "rm -rf ./.dist/",
+    "build:cjs": "tsc -p tsconfig.build-cjs.json",
+    "build:mjs": "tsc -p tsconfig.build-mjs.json",
+    "-- publish npm": "# publish npm package",
+    "publish:npm": "yarn build:once ",
     "publish:npm:patch":
       "yarn build:npm:once && yarn version --patch && yarn publish --non-interactive || echo '\"npm publish --access=public\" to publish to npm'",
   })

@@ -2,12 +2,14 @@ import { createPackageExts, extendPackage } from ".."
 import * as utils from "@thesunny/script-utils"
 
 describe("map exports", () => {
-  const mappings = {
-    ".": "src/index.ts",
-    api: "src/api/index.ts",
-    client: "src/client/index.ts",
-    mock: "src/mock/index.ts",
-    web: "src/web/index.ts",
+  const config = {
+    exports: {
+      ".": "src/index.ts",
+      api: "src/api/index.ts",
+      client: "src/client/index.ts",
+      mock: "src/mock/index.ts",
+      web: "src/web/index.ts",
+    },
   }
 
   beforeAll(() => {
@@ -20,7 +22,7 @@ describe("map exports", () => {
   })
 
   it("should generate extensions", async () => {
-    const packageExts = createPackageExts(mappings)
+    const packageExts = createPackageExts(config)
     expect(packageExts).toEqual({
       main: ".dist/cjs/src/index.js",
       module: ".dist/mjs/src/index.js",
@@ -51,6 +53,12 @@ describe("map exports", () => {
           import: "./.dist/mjs/src/web/index.js",
           types: "./.dist/cjs/src/web/index.d.ts",
         },
+        "./package.json": "./package.json",
+        "./*": {
+          require: "./.dist/cjs/src/*.js",
+          import: "./.dist/mjs/src/*.js",
+          types: "./.dist/cjs/src/*.d.ts",
+        },
       },
       typesVersions: {
         "*": {
@@ -71,14 +79,15 @@ describe("map exports", () => {
     utils.logger.silence(() => {
       utils.removeFileIfExists(mappingsPath)
       utils.removeFileIfExists(pkgPath)
-      utils.writeFile(mappingsPath, JSON.stringify(mappings, null, 2))
+      utils.writeFile(mappingsPath, JSON.stringify(config, null, 2))
       utils.writeFile(pkgPath, JSON.stringify(pkg, null, 2))
+      extendPackage(pkgPath, mappingsPath)
     })
-    extendPackage(pkgPath, mappingsPath)
     const pkgJson = JSON.parse(utils.readFile(pkgPath))
     expect(pkgJson).toEqual({
       name: "temporary",
       dependencies: {},
+
       main: ".dist/cjs/src/index.js",
       module: ".dist/mjs/src/index.js",
       types: ".dist/cjs/src/index.d.ts",
@@ -107,6 +116,12 @@ describe("map exports", () => {
           require: "./.dist/cjs/src/web/index.js",
           import: "./.dist/mjs/src/web/index.js",
           types: "./.dist/cjs/src/web/index.d.ts",
+        },
+        "./package.json": "./package.json",
+        "./*": {
+          require: "./.dist/cjs/src/*.js",
+          import: "./.dist/mjs/src/*.js",
+          types: "./.dist/cjs/src/*.d.ts",
         },
       },
       typesVersions: {

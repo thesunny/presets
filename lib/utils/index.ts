@@ -1,10 +1,10 @@
-export * from "@thesunny/script-utils"
 import * as utils from "@thesunny/script-utils"
 import { ExistsOptions } from "@thesunny/script-utils"
-
 import Path from "path"
 import { Dependencies, install } from "mrm-core"
 import * as core from "mrm-core"
+
+export * from "@thesunny/script-utils"
 
 export function getPresetPath(subpath: string): string {
   return Path.join(__dirname, "../..", subpath)

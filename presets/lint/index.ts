@@ -12,6 +12,7 @@ export function lintPreset() {
   utils.syncLines(".eslintignore")
 
   utils.addDevDeps({
+    concurrently: "^7.2",
     prettier: "^2",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
@@ -29,7 +30,7 @@ export function lintPreset() {
     "fix:prettier": "yarn lint:prettier --write",
     "fix:eslint": "yarn lint:eslint --fix",
     "-- lint": "# lint syntax",
-    lint: "yarn lint:prettier && yarn lint:eslint && yarn lint:tsc",
+    lint: "concurrently 'yarn lint:prettier' 'yarn lint:eslint' 'yarn lint:tsc'",
     "lint:prettier": 'prettier --check "**/*.{css,md,js,jsx,json,ts,tsx}"',
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --build ./ --force",
