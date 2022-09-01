@@ -1,0 +1,50 @@
+/* Import this file from `pages/_app.tsx` */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Base are defaults.
+  Add defaults to base like text color, default font, or to add @font-face.
+
+  https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles
+*/
+@layer base {
+}
+
+/*
+  Components override base.
+  Add components like .btn .btn-primary and .font-fancy
+
+  https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes
+*/
+@layer components {
+  /* .btn {
+    @apply transform rounded-lg px-5 py-4 text-sm font-semibold tracking-wider transition duration-300 ease-in-out focus:outline-none focus:ring;
+  }
+  .btn-primary {
+    @apply bg-brand text-white  shadow-lg shadow-brand/30 hover:-translate-y-0.5 hover:bg-brand-dark focus:ring-brand focus:ring-opacity-50 active:bg-brand-darker;
+  }
+  .btn-secondary {
+    @apply bg-slate-200 text-slate-800 hover:bg-slate-300 focus:ring-slate-200 focus:ring-opacity-50 active:bg-slate-600;
+  }
+  .brand-gradient {
+    @apply bg-gradient-to-b from-brand to-brand-darker;
+  } */
+}
+
+/*
+  Utilities override components.
+  Use them like Tailwind built-ins that can override anything.
+
+  https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities
+*/
+@layer utilities {
+  /* .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  } */
+}

@@ -3,6 +3,7 @@ import tsJestPreset from "../ts-jest"
 import * as core from "mrm-core"
 import lintPreset from "../lint"
 import gitignorePreset from "../gitignore"
+import { sortPackagePreset } from "../sort-package"
 
 export default function npmPreset() {
   utils.title(`Preset NPM`)
@@ -46,11 +47,14 @@ export default function npmPreset() {
     "build:cjs": "tsc -p tsconfig.build-cjs.json",
     "build:mjs": "tsc -p tsconfig.build-mjs.json",
     "-- publish npm": "# publish npm package",
-    "publish:npm": "yarn build:once ",
+    "publish:npm": "yarn build:once && yarn publish || yarn publish:first",
     "publish:npm:patch":
-      "yarn build:npm:once && yarn version --patch && yarn publish --non-interactive || echo '\"npm publish --access=public\" to publish to npm'",
+      "yarn build:once && yarn version --patch && yarn publish --non-interactive || yarn publish:first",
+    "publish:first":
+      "echo 'IMPORTANT INSTRUCTIONS: This is first publish so please use:\n\n\"npm publish --access=public\"'",
   })
   utils.title(
     `Don't forget to set name in "package.json"\nCurrently: ${pkgName}`
   )
+  sortPackagePreset()
 }

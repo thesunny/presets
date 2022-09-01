@@ -102,7 +102,7 @@ export function listReorder(
   return list
 }
 
-export default function sortPackagePreset() {
+function sortPackagePreset() {
   utils.title("Preset sort-package")
 
   const pkg = JSON.parse(utils.readFile("package.json"))
@@ -116,3 +116,6 @@ export default function sortPackagePreset() {
   utils.removeFileIfExists("package.json")
   utils.writeFile("package.json", text)
 }
+
+export { sortPackagePreset }
+export default sortPackagePreset

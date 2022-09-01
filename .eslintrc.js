@@ -37,6 +37,10 @@ module.exports = {
      * React being in Scope is not required in Next.js so we turn it off
      */
     "react/react-in-jsx-scope": "off",
+    /**
+     * Too much work too escape quotes and stuff in HTML for no noticeable gain
+     */
+    "react/no-unescaped-entities": "off",
   },
   overrides: [
     {

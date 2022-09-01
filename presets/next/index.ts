@@ -42,7 +42,7 @@ export default function nextPreset() {
    * Add dependencies
    */
   utils.addDeps({
-    next: "10.x",
+    next: "12.x",
     react: "17.x",
     "react-dom": "17.x",
     dotenv: "16.x",
