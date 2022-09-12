@@ -3,13 +3,13 @@
 To get started with presets, do the following:
 
 ```sh
-# Updated most recent getting started only requires this.
-# See the @thesunny/preset repository which automatically wires everything up.
-yarn create @thesunny/preset
-
 # If it's a new project...
 yarn init
 git init
+
+# Updated most recent getting started only requires this.
+# See the @thesunny/preset repository which automatically wires everything up.
+yarn create @thesunny/preset
 
 # Add dependencies and add script
 

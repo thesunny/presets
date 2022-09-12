@@ -20,6 +20,7 @@ export function lintPreset() {
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-no-secrets": "^0.8.9",
     "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-simple-import-sort": "^7.0",
   })
 
   /**

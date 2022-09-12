@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "no-secrets"],
+  plugins: ["react", "@typescript-eslint", "no-secrets", "simple-import-sort"],
   rules: {
     /**
      * We don't require explicit return types as sometimes we want them
