@@ -636,16 +636,16 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@thesunny/script-utils@^0.1.44":
-  version "0.1.44"
-  resolved "https://registry.yarnpkg.com/@thesunny/script-utils/-/script-utils-0.1.44.tgz#06c1e137148532b0057b20a75f6a0cb706d06f68"
-  integrity sha512-qomNqSFMzIgRs16qnDM8FEQHrpxSs7e3uRyj8xzYqlb7aLiQw2zfXwBjRhEvtoMxMReboN/dOCcuxk0QfYWV8Q==
+"@thesunny/script-utils@^0.1.50":
+  version "0.1.50"
+  resolved "https://registry.yarnpkg.com/@thesunny/script-utils/-/script-utils-0.1.50.tgz#cc3f81716cf364782e89fed4e6d722948736253f"
+  integrity sha512-8stTtpswpLJLpurrZoSnS2V2dbm9qQY9awU7Jn7A+HVEVjbUk29sgTW3XTAK2RsjwVFQ4Jh6zFIDGzhpieIbXw==
   dependencies:
     chalk "^4"
     fs-extra "^10.0.0"
     jest-diff "^27.5.1"
     prompt-sync "^4.2.0"
-    unit-logger "^1.0.2"
+    unit-logger "^1.0.3"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -4133,10 +4133,10 @@ unique-string@^2.0.0:
   dependencies:
     crypto-random-string "^2.0.0"
 
-unit-logger@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/unit-logger/-/unit-logger-1.0.2.tgz#99a2220dde5c6927935798f628390bca8329ce3b"
-  integrity sha512-umcNdO5n2nDOSngrJ1o5iB4HxAaMUqIhd8Cz8vbv5L1fw4n98bTzNn2QGpKseS78V/v3COO2lYGvsbuCcWHclg==
+unit-logger@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/unit-logger/-/unit-logger-1.0.3.tgz#ffbabe5bbe46a148caa2452641b4add05ffa90c5"
+  integrity sha512-VkKS2D5cO/IKwfALhOtFsPjksvZcwFGA8Uasx++hmj1+8mFvEV4P1pSi4B7F0wn5WFj82qO40qvARLeY9oXu/A==
 
 universalify@^0.1.0, universalify@^0.1.2:
   version "0.1.2"

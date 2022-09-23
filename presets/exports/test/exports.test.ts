@@ -21,7 +21,7 @@ describe("map exports", () => {
     })
   })
 
-  it("should generate extensions", async () => {
+  it.only("should generate extensions", async () => {
     const packageExts = createPackageExts(config)
     expect(packageExts).toEqual({
       main: ".dist/cjs/src/index.js",

@@ -1,5 +1,17 @@
 # Exports
 
+WARNING: This preset may not be in a valid working state. We can probably refer to `nexton` as an example where we have a working implementation of multiple entry points.
+
+Some things to consider:
+
+- Using something like `microbundle` to help us create entry points
+- Get the unit test working which requires us to figure out
+  - Do we include `package.json`
+  - Do we include the subpackages `package.json` files
+  - When and how do we use the wildcards, especially in reference to subpackage files that may not be bundled into a single file or do we force everything to bundle into a single file.
+
+---
+
 The exports preset modifies `package.json` so that we can access portions of the NPM library using a path. This works like packages like Next.js where we import the `Link` component by using an import like:
 
 ```typescript
