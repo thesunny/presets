@@ -1,0 +1,10 @@
+/**
+ * Incorporates the requirements of Next.js
+ */
+{
+  "extends": "./tsconfig.custom.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESnext"
+  }
+}
