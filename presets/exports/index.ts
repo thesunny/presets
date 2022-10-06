@@ -2,6 +2,7 @@ import * as utils from "~/lib/utils"
 import { PackageJson } from "type-fest"
 import Path from "path"
 import * as core from "mrm-core"
+import { sortPackagePreset } from "../sort-package"
 
 type PackageExport = {
   require: string
@@ -36,8 +37,8 @@ export function createPackageExts(config: Config) {
       })
     } else if (key.startsWith("."))
       throw new Error(
-        `Except the root at "." Mapping keys should not start with a "." but is ${JSON.stringify(
-          path
+        `With the exception of the root at "." Mapping keys should not start with a "." but is ${JSON.stringify(
+          key
         )}`
       )
 
@@ -106,6 +107,7 @@ export function extendPackage(
     "Save package.json with exports, typesVersions, main, module and types"
   )
   packageJson.save()
+  sortPackagePreset()
   utils.pass("Done")
 }
 
