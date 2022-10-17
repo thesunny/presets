@@ -71,6 +71,7 @@ export default function nextPreset() {
     utils.addScripts({
       "-- next": "# NextJs",
       "start:dev": `DOTENV=.env/dev.env next dev -p ${port}`,
+      open: `open -a 'google chrome' http://localhost:${port}`,
     })
     utils.pass("Done")
   } else {
