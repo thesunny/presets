@@ -18,9 +18,12 @@ export function lintPreset() {
     "@typescript-eslint/parser": "^5.15.0",
     eslint: "^8.4.1",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-no-secrets": "^0.8.9",
-    "eslint-plugin-react": "^7.27.1",
-    "eslint-plugin-simple-import-sort": "^7.0",
+    "eslint-import-resolver-node": "^0.3",
+    "eslint-import-resolver-typescript": "^3.5",
+    "eslint-plugin-import": "^2.26",
+    "eslint-plugin-no-secrets": "^0.8",
+    "eslint-plugin-react": "^7.27",
+    "eslint-plugin-simple-import-sort": "^8.0",
   })
 
   /**

@@ -18,6 +18,7 @@ export function tailwindPreset() {
     "@tailwindcss/forms": "^0.5",
     "@tailwindcss/typography": "^0.5",
     autoprefixer: "^10.4",
+    "prettier-plugin-tailwindcss": "^0.1",
     postcss: "^8.4",
     tailwindcss: "^3.1",
   })

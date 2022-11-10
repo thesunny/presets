@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
+    "plugin:import/recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier", // uses `eslint-config-prettier`
@@ -18,7 +19,13 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "no-secrets", "simple-import-sort"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "no-secrets",
+    "import",
+    "simple-import-sort",
+  ],
   rules: {
     /**
      * We don't require explicit return types as sometimes we want them
@@ -34,6 +41,10 @@ module.exports = {
      */
     "no-secrets/no-secrets": ["error", { tolerance: 4.6 }],
     /**
+     * Not necessary to add prop types if we are using TypeScript
+     */
+    "react/prop-types": "off",
+    /**
      * React being in Scope is not required in Next.js so we turn it off
      */
     "react/react-in-jsx-scope": "off",
@@ -41,6 +52,14 @@ module.exports = {
      * Too much work too escape quotes and stuff in HTML for no noticeable gain
      */
     "react/no-unescaped-entities": "off",
+    /**
+     * Make sure imports are sorted
+     */
+    "simple-import-sort/imports": "error",
+    /**
+     * Make sure exports are sorted
+     */
+    "simple-import-sort/exports": "error",
   },
   overrides: [
     {
@@ -65,6 +84,20 @@ module.exports = {
        * in the future and then we can remove this.
        */
       version: "detect",
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      /**
+       * Enables `eslint-import-resolver-typescript`.
+       * Resolves paths in `tsconfig.json` like `~/`.
+       */
+      typescript: {},
+      /**
+       * Enables `eslint-import-resolver-node`.
+       */
+      node: {},
     },
   },
 }
