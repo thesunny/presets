@@ -28,10 +28,21 @@ module.exports = {
   ],
   rules: {
     /**
+     * We want to allow @ts-ignore because if we are using it, it's because we
+     * know what we are doing.
+     */
+    "@typescript-eslint/ban-ts-comment": "off",
+    /**
      * We don't require explicit return types as sometimes we want them
      * derived from the function.
      */
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    /**
+     * It's a common pattern to import a module as a single default value
+     * and the current VS Code tooling doesn't allow us to automatically fix
+     * this so leaving it in for now.
+     */
+    "import/no-named-as-default-member": "off",
     /**
      * Don't allow eslint to pass if there is a `FIXME:` in the code
      */
@@ -49,7 +60,7 @@ module.exports = {
      */
     "react/react-in-jsx-scope": "off",
     /**
-     * Too much work too escape quotes and stuff in HTML for no noticeable gain
+     * Too much work to escape quotes and stuff in HTML for no noticeable gain
      */
     "react/no-unescaped-entities": "off",
     /**

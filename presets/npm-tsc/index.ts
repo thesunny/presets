@@ -4,8 +4,9 @@ import * as core from "mrm-core"
 import lintPreset from "../lint"
 import gitignorePreset from "../gitignore"
 import { sortPackagePreset } from "../sort-package"
+import { tsNodePreset } from "../ts-node"
 
-export default function npmPreset() {
+export function npmTsPreset() {
   utils.title(`Preset NPM`)
 
   utils.task("Set main, types and files in package.json")
@@ -21,6 +22,7 @@ export default function npmPreset() {
   utils.pass("Done")
 
   gitignorePreset()
+  tsNodePreset()
   tsJestPreset()
   lintPreset()
   utils.copyLocalFiles(["tsconfig.tsc.json"])
@@ -43,3 +45,5 @@ export default function npmPreset() {
   )
   sortPackagePreset()
 }
+
+export default npmTsPreset

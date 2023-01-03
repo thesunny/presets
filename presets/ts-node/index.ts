@@ -1,6 +1,6 @@
 import * as utils from "~/lib/utils"
 
-export default function tsnodePreset() {
+export function tsNodePreset() {
   utils.title(`Preset tsnode`)
   utils.copyLocalFiles([
     "tsconfig.base.json",
@@ -13,3 +13,5 @@ export default function tsnodePreset() {
     ts: "ts-node --project tsconfig.ts-node.json",
   })
 }
+
+export default tsNodePreset()
