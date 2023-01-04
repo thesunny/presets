@@ -37,12 +37,13 @@
     "string-hash": "^1.1.3"
   },
   "scripts": {
-    "-- preset": "# local version of preset",
-    "preset": "ts-node --project tsconfig.ts-node.json bin/index.ts",
     "--- test": "#",
+    "test:clearcache": "jest --clearCache",
     "test:once": "yarn test:clearcache && jest --config=jest.config.js",
     "test:watch": "jest --watch --config=jest.fast.config.js",
     "test:watch:types": "yarn test:clearcache && jest --watch --config=jest.config.js",
-    "test:clearcache": "jest --clearCache"
+    "-- preset": "# local version of preset",
+    "preset": "ts-node --project tsconfig.ts-node.json bin/index.ts",
+    "-- end": "# end"
   }
 }

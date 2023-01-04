@@ -23,17 +23,6 @@ function groupScriptKeys(scriptKeys: string[]): Record<string, string[]> {
   return groups
 }
 
-/**
- * Takes an array of string[] and moves one of the string items to the end.
- */
-function pushItemToEnd(array: string[], item: string) {
-  const index = array.indexOf(item)
-  if (index !== -1) {
-    array.splice(index, 1)
-  }
-  array.push(item)
-}
-
 function sortScriptsPreset() {
   utils.title("Preset sort-scripts")
 
@@ -86,16 +75,18 @@ function sortScriptsPreset() {
   }
 
   /**
+   * Now sort the original `scripts` object.
+   */
+  const nextScripts = sortObjectKeys(scripts, allOrderedKeys)
+
+  /**
    * Make sure `-- end` is always last. This is there to make it easier to add
    * new scripts. We never have to worry about whether or not tehre is a
    * trailing comma.
    */
-  pushItemToEnd(allOrderedKeys, "-- end")
 
-  /**
-   * Now sort the original `scripts` object.
-   */
-  const nextScripts = sortObjectKeys(scripts, allOrderedKeys)
+  delete nextScripts["-- end"]
+  nextScripts["-- end"] = "# end"
 
   /**
    * And incorporate it back into the full `package.json`
