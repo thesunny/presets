@@ -1,6 +1,6 @@
 {
   "name": "@thesunny/presets",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Use a starter kit to begin and update projects with best practices",
   "main": "bin/index.ts",
   "files": [

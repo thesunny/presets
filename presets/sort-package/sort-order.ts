@@ -25,16 +25,16 @@ export const sortOrder = [
   "contributors",
   "publisher",
   "sideEffects",
-  "type",
-  "directories", // moved below "type" because we want to know what files/directories are included
-  "files", // moved
+  "directories", // near the top so we know what directories/files are used
+  "files", // moved below directories
+  "type", // moved above source (because it tells us about source)
+  "source", // moved above main (because that's where source will create)
   "main",
   "svelte",
   "umd:main",
   "jsdelivr",
   "unpkg",
   "module",
-  "source",
   "jsnext:main",
   "browser",
   "react-native",
